@@ -1,0 +1,34 @@
+
+<div>
+    <h3 class="text-primary">Angular 2 FormBuilder Example</h3>
+    <form [ngFormModel]="personFormGroup" #f="ngForm"  
+          (ngSubmit)="onSubmit(f.value)"  
+          class="ui form">
+            <div class="form-group">
+                <label class="col-xs-4 control-label text-muted" >Name : <span *ngIf="!personFormGroup.controls['name'].valid">( required )</span> </label>
+                <div class="col-xs-8">
+                    <input class="form-control"
+                           type="text"
+                           [ngFormControl]="personFormGroup.controls['name']"
+                    >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label text-muted" >Email : <span *ngIf="!personFormGroup.controls['email'].valid">( required )</span> </label>
+                <div class="col-xs-8">
+                    <input class="form-control" type="text"
+                           [ngFormControl]="personFormGroup.controls['email']"
+                    >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label text-muted" >Mobile : <span *ngIf="!personFormGroup.controls['phoneNo'].valid">( required )</span> </label>
+                <div class="col-xs-8">
+                    <input class="form-control" type="text"
+                           [ngFormControl]="personFormGroup.controls['phoneNo']"
+                    >
+                </div>
+            </div> 
+            <button type="submit" class="ui button">Submit</button> 
+    </form>
+</div>
