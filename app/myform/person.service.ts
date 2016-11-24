@@ -19,6 +19,10 @@ export class PersonService{
 //	}
 	const body = JSON.stringify(value);
 	console.log(body);
+  var val = JSON.parse(body);
+  console.log(val);
+  console.log(typeof(val));
+
 //    let headers = new Headers();
 
 //	headers.append('Content-Type', 'application/json');
@@ -31,7 +35,10 @@ export class PersonService{
        return this.http.get(this.getall_endpoint_url).map(res => res.json());
    }
    getPersonByName(value: String) {
-   let headers      = new Headers({ 'Content-Type': 'application/json' }); 
+   let headers      = new Headers({ 'Content-Type': 'application/json' });
+   headers.append('Access-Control-Allow-Headers', 'Content-Type');
+   headers.append('Access-Control-Allow-Methods', 'POST');
+   headers.append('Access-Control-Allow-Origin', '*');
 	let options       = new RequestOptions({ headers: headers });
 
    return this.http.get(this.getPersonByName_endpoint_url+value, options).map(res=> res.json());
