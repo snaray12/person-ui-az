@@ -10,10 +10,11 @@ import {PersonService} from './person.service'
    template:`
       <input type="text" #listItem>
       <button (click)="onSearch(listItem)">Search</button>
+      <a href="index.html">Add Person</a>
       <ul>
-         <li *ngFor="#listItem of listItems"
-            (click)="onItemClicked(listItem)">{{listItem.name}}
-         </li>
+        <li *ngFor="#person of persons">
+          {{person.id}} {{person.name}} {{person.email}} {{person.phoneNo}} <button>Delete</button><button>Edit</button>
+        </li>
       </ul>
    `,
    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES],
